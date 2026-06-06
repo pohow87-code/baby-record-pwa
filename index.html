@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6a870" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="육아 기록" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>육아 기록</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/icon-180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="app-main">
+        <section class="tab-screen active" data-tab-screen="home">
+          <div class="screen-content">
+            <header class="hero component component--hero">
+              <p class="eyebrow">Baby Log</p>
+              <h1>한 번 탭하면 바로 기록</h1>
+              <p class="hero-copy">분유, 모유수유, 유축, 기저귀, 수면, 몸무게, 메모를 빠르게 남기세요.</p>
+              <div class="hero-time">
+                <span>지금</span>
+                <strong data-role="live-now"></strong>
+              </div>
+            </header>
+
+            <section class="panel component component--quick-log">
+              <div class="section-head">
+                <div>
+                  <p class="section-kicker">Quick Log</p>
+                  <h2>바로 기록</h2>
+                </div>
+                <button class="ghost-button" type="button" data-action="clear-all">전체 삭제</button>
+              </div>
+
+              <div class="quick-grid component__body">
+                <button class="action-card action-card--feed" type="button" data-action="feed">
+                  <span class="emoji">🍼</span>
+                  <span class="title">분유 기록</span>
+                  <span class="subtitle" data-role="feed-summary"></span>
+                </button>
+
+                <button class="action-card action-card--breastfeed" type="button" data-action="breastfeed">
+                  <span class="emoji">🤱</span>
+                  <span class="timer timer--corner" data-role="breastfeed-timer" aria-live="polite"></span>
+                  <span class="title" data-role="breastfeed-title">모유수유 시작</span>
+                  <span class="subtitle" data-role="breastfeed-summary"></span>
+                </button>
+
+                <button class="action-card action-card--diaper" type="button" data-action="diaper">
+                  <span class="emoji">🧷</span>
+                  <span class="title">기저귀 기록</span>
+                  <span class="subtitle" data-role="diaper-summary"></span>
+                </button>
+
+                <button class="action-card action-card--sleep" type="button" data-action="sleep">
+                  <span class="emoji">😴</span>
+                  <span class="timer timer--corner" data-role="sleep-timer" aria-live="polite"></span>
+                  <span class="title" data-role="sleep-title">수면 시작</span>
+                  <span class="subtitle" data-role="sleep-summary"></span>
+                </button>
+
+                <button class="action-card action-card--weight" type="button" data-action="weight">
+                  <span class="emoji">⚖️</span>
+                  <span class="title">몸무게 기록</span>
+                  <span class="subtitle" data-role="weight-summary"></span>
+                </button>
+
+                <button class="action-card action-card--pump" type="button" data-action="pump">
+                  <span class="emoji">🧴</span>
+                  <span class="title">유축 기록</span>
+                  <span class="subtitle" data-role="pump-summary"></span>
+                </button>
+              </div>
+              <p class="quick-log-help">짧게 탭하면 빠른 기록, 길게 누르면 값을 직접 입력할 수 있어요.</p>
+            </section>
+          </div>
+        </section>
+
+        <section class="tab-screen" data-tab-screen="stats">
+          <div class="screen-content">
+            <section class="panel component component--summary">
+              <div class="section-head">
+                <div>
+                  <p class="section-kicker">Overview</p>
+                  <h2>요약 통계</h2>
+                  <p class="stats-date-label" data-role="stats-date-label"></p>
+                </div>
+                <div class="range-tabs" role="tablist" aria-label="통계 범위">
+                  <button class="range-tab active" type="button" data-range="day">하루</button>
+                  <button class="range-tab" type="button" data-range="week">주간</button>
+                  <button class="range-tab" type="button" data-range="month">월간</button>
+                </div>
+              </div>
+
+              <div class="summary-grid component__body" data-role="summary-cards"></div>
+              <div class="stats-filters component__body" data-role="stats-filters"></div>
+
+              <div class="stats-charts component__body" data-role="stats-charts"></div>
+
+              <article class="calendar-panel component component--stats-calendar">
+                <div class="calendar-head">
+                  <div>
+                    <p class="section-kicker">Calendar</p>
+                    <h3 data-role="calendar-month-label">2026년 4월</h3>
+                  </div>
+                  <div class="calendar-actions">
+                    <button class="ghost-button" type="button" data-action="calendar-prev">이전달</button>
+                    <button class="ghost-button" type="button" data-action="calendar-today">오늘</button>
+                    <button class="ghost-button" type="button" data-action="calendar-next">다음달</button>
+                  </div>
+                </div>
+                <div class="calendar-weekdays" aria-hidden="true">
+                  <span>월</span>
+                  <span>화</span>
+                  <span>수</span>
+                  <span>목</span>
+                  <span>금</span>
+                  <span>토</span>
+                  <span>일</span>
+                </div>
+                <div class="calendar-grid" data-role="stats-calendar-grid"></div>
+              </article>
+            </section>
+          </div>
+        </section>
+
+        <section class="tab-screen" data-tab-screen="history">
+          <div class="screen-content">
+            <section class="panel component component--history">
+              <div class="section-head">
+                <div>
+                  <p class="section-kicker">History</p>
+                  <h2>기록 이력</h2>
+                </div>
+                <span class="pill" data-role="record-count"></span>
+              </div>
+              <div class="history-filters component__body" data-role="history-filters">
+                <button class="range-tab active" type="button" data-history-filter="all">전체</button>
+                <button class="range-tab" type="button" data-history-filter="feed">분유</button>
+                <button class="range-tab" type="button" data-history-filter="breastfeed">모유수유</button>
+                <button class="range-tab" type="button" data-history-filter="diaper">기저귀</button>
+                <button class="range-tab" type="button" data-history-filter="pump">유축</button>
+                <button class="range-tab" type="button" data-history-filter="sleep">수면</button>
+                <button class="range-tab" type="button" data-history-filter="weight">몸무게</button>
+                <button class="range-tab" type="button" data-history-filter="memo">메모</button>
+              </div>
+              <div class="history-list" data-role="history-list"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="tab-screen" data-tab-screen="settings">
+          <div class="screen-content">
+            <section class="panel component component--defaults">
+              <div class="section-head">
+                <div>
+                  <p class="section-kicker">Defaults</p>
+                  <h2>기본값 설정</h2>
+                </div>
+                <div class="inline-actions">
+                  <button class="ghost-button" type="button" data-action="export-records">내보내기</button>
+                  <button class="ghost-button" type="button" data-action="import-records">가져오기</button>
+                </div>
+              </div>
+
+              <div class="config-grid component__body">
+                <article class="mini-panel component component--feed-default">
+                  <div class="mini-panel-head">
+                    <h3>분유 기본량</h3>
+                    <span class="selection-label" data-role="feed-selection"></span>
+                  </div>
+                  <div class="chip-row" data-role="feed-options"></div>
+                  <label class="input-row">
+                    <span>직접 입력 (ml)</span>
+                    <input type="number" inputmode="numeric" min="0" step="10" placeholder="예: 140" data-input="feed-amount" />
+                  </label>
+                </article>
+
+                <article class="mini-panel component component--diaper-default">
+                  <div class="mini-panel-head">
+                    <h3>기저귀 기본상태</h3>
+                    <span class="selection-label" data-role="diaper-selection"></span>
+                  </div>
+                  <div class="chip-row" data-role="diaper-options"></div>
+                </article>
+
+                <article class="mini-panel component component--weight-default">
+                  <div class="mini-panel-head">
+                    <h3>몸무게 입력</h3>
+                    <span class="selection-label" data-role="weight-selection"></span>
+                  </div>
+                  <label class="input-row">
+                    <span>기록할 몸무게 (kg)</span>
+                    <input type="number" inputmode="decimal" min="0" step="0.001" placeholder="예: 6.4" data-input="weight-value" />
+                  </label>
+                  <p class="helper-copy">버튼을 누르면 현재 입력값으로 바로 저장됩니다.</p>
+                </article>
+
+                <article class="mini-panel component component--pump-default">
+                  <div class="mini-panel-head">
+                    <h3>유축 기본량</h3>
+                    <span class="selection-label" data-role="pump-selection"></span>
+                  </div>
+                  <div class="chip-row" data-role="pump-options"></div>
+                  <label class="input-row">
+                    <span>직접 입력 (ml)</span>
+                    <input type="number" inputmode="numeric" min="0" step="10" placeholder="예: 90" data-input="pump-amount" />
+                  </label>
+                </article>
+
+                <article class="mini-panel component component--memo">
+                  <div class="mini-panel-head">
+                    <h3>메모</h3>
+                    <span class="selection-label">짧게 남기기</span>
+                  </div>
+                  <textarea rows="3" placeholder="예: 분유 잘 먹음, 낮잠 뒤 기분 좋음" data-input="memo"></textarea>
+                  <button class="wide-button" type="button" data-action="memo">메모 저장</button>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-tabbar" aria-label="주요 탭">
+        <button class="tabbar-button active" type="button" data-tab="home">홈</button>
+        <button class="tabbar-button" type="button" data-tab="stats">통계</button>
+        <button class="tabbar-button" type="button" data-tab="history">이력</button>
+        <button class="tabbar-button" type="button" data-tab="settings">설정</button>
+      </nav>
+
+      <div class="toast" data-role="toast" aria-live="polite"></div>
+      <input type="file" accept="application/json" data-role="import-file" hidden />
+
+      <dialog class="record-dialog" data-role="record-dialog">
+        <form method="dialog" class="record-dialog__panel">
+          <div class="record-dialog__head">
+            <div>
+              <p class="section-kicker">Record</p>
+              <h3 data-role="dialog-title">기록 수정</h3>
+            </div>
+            <button class="ghost-button" type="submit">닫기</button>
+          </div>
+
+          <div class="record-dialog__body" data-role="dialog-fields"></div>
+
+          <div class="record-dialog__actions">
+            <button class="ghost-button ghost-button--danger" type="button" data-action="delete-record">삭제</button>
+            <button class="wide-button" type="button" data-action="save-record">수정 저장</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js").catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
